@@ -1,0 +1,13 @@
+{% extends 'medialib/components/layout.html' %}
+
+{% block title %}
+    Login
+{% endblock %}
+
+{% block content %}
+    <form action="{% url 'medialib:login' %}" method="POST">
+        {% csrf_token %}
+        {{ form }}
+        <input type="submit" value="Login">
+    </form>
+{% endblock %}

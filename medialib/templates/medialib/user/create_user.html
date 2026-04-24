@@ -1,0 +1,15 @@
+{% extends 'medialib/components/layout.html' %}
+
+{% block title %}
+    Register
+{% endblock %}
+
+{% block content %}
+<div>
+    <form action="{% url 'medialib:create.user' %}" method="POST">
+        {% csrf_token %}
+        {{ form.as_table }}
+        <input type="submit" value="Register"/>
+    </form>
+</div>
+{% endblock %}

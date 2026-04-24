@@ -1,0 +1,41 @@
+{% load static tailwind_tags %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <!Se define el título de la página>
+    <title>
+        {% block title %}
+            Django App
+        {% endblock %}
+    </title>
+</head>
+<!Definición del cuerpo del HTML>
+<body>
+    <!Comprobación de si hay mensajes>
+    {% if messages %}
+    <!Bucle para iterar sobre los mensajes. Si los hay se muestran en la parte superior>
+    {% for message in messages %}
+        <div 
+            x-data="{ show: true }"
+            x-init="setTimeout(() => show = false, 4000)"
+            x-show="show">
+            {{ message }}
+        </div>
+    {% endfor %}
+{% endif %}
+    <!Barra de navegación con links a otras partes de la página>
+    <nav>
+        <a href="{% url 'medialib:home' %}">🏠</a> |
+        <a href="{% url 'medialib:create.user' %}"> Registro </a> |
+        <a href="{% url 'medialib:login' %}"> Login </a>
+    </nav>
+    <main>
+        {% block content%}
+        
+        {%endblock%}
+    </main>    
+</body>
+</html>

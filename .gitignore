@@ -1,0 +1,5 @@
+﻿venv/
+db_design/
+__pycache__/
+*.pyc
+.env
