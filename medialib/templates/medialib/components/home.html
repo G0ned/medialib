@@ -8,4 +8,9 @@
     <h1> 
         Esta es la página de inicio de Medialib.
     </h1>
+    {% if user.is_authenticated %}
+        <p> 
+            Bienvenid@ a medialib {{user.username}}!
+        </p>
+    {% endif %}
 {% endblock %}
