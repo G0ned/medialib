@@ -96,8 +96,8 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'medialib',
-        'USER': 'admin_us',
-        'PASSWORD': 'admin_us;1',
+        'USER': 'ad',
+        'PASSWORD': 'admin',
         'HOST': 'localhost',
         'PORT': 5432,
     }
@@ -139,6 +139,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.2/howto/static-files/
 
 STATIC_URL = 'static/'
+STATICFILES_DURS = [BASE_DIR / 'satic']
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field

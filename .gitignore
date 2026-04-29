@@ -1,5 +1,6 @@
-﻿venv/
-db_design/
+# Created by venv; see https://docs.python.org/3/library/venv.html
 __pycache__/
+venv/
 *.pyc
 .env
+db.sqlite3
