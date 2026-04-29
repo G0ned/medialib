@@ -1,0 +1,15 @@
+{% extends medialib/components/layout.html %}
+
+{% block title %}
+    Dashboard
+{% endblock %}
+
+{% block content %}
+<div class="max-w-sm mx-auto px-4 sm:px-6 lm:px-8">
+    <div class="bg-slate-500 rounded-lg shadow-sm p-6 sm:p-8 mt-5 mb-8">
+        <h1 class="text-2xl font-bold text-white">Dashboard</h1>
+        <p class="mt-1 text-sm text-white">
+            Welcome {{user.username}}!
+        </p>
+    </div>
+{% endblock %}
