@@ -56,15 +56,42 @@
                                 {% csrf_token %}
                                 <button type="submit" class="text-white hover:bg-blue-700 px-3 py-2 rounded-md text-sm font-medium">Logout</button>
                             </form>
+                            <a class ="bg-blue-400 rounded-md px-3 py-2 text-sm font-medium" href="{% url 'medialib:dashboard' user.id %}">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z" />
+                                </svg>
+                            </a>
                         {% endif %}   
                     </div>
                 </div>
             </div>
         </nav>
         <main>
-            {% block content%}
-            
-            {%endblock%}
+            {% if user.is_authenticated%}
+            <div class="max-w-xl mx-auto mt-4 px-4">
+                <!-- Search form 
+                    Search bar for searching videogames
+                    The user must enter the name of the videogame they want to search for and submit the form
+                    The form makes a get request to the search results view with the search query (the videogame name) as a parameter
+                -->
+                <div>
+                    <form method="GET" action="{% url 'medialib:search.results' %}">
+                        <div class="flex items-center border border-gray-300 rounded-lg overflow-hidden focus-within:ring-2 focus-within:ring-blue-500">
+                            <div class="pl-3">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
+                                </svg>
+                            </div>
+                            <input type="search" id="search" name="search" placeholder="Search videogame..." class="w-full px-3 py-2 focus:outline-none bg-transparent">
+                            <button type="submit" class="px-4 py-2 bg-blue-500 text-white hover:bg-blue-600 transition-colors">Search</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            {% endif %}
+            {% block content %} 
+
+            {% endblock %}
         </main>    
     </div>
 </body>
