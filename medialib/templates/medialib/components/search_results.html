@@ -1,0 +1,31 @@
+{% extends 'medialib/components/layout.html' %}
+
+{% block title %}
+    Search results
+{% endblock %}
+
+{% block content %}
+    <h3>Search results:</h3>
+    <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4 mt-6">
+        {% for game in result %}
+            <div class="bg-gray-100 rounded-lg shadow-sm hover:shadow-md transition-shadow duration-200 p-6">
+                <h3 class="text-lg font-semibold text-gray-900 mb-2">{{ game.name }}</h3>
+                <div class="space-y-3 ">
+                    <div class="flex items-center text-sm text-gray-600">
+                        <b>Platforms: </b>
+                        {% for platform in game.platforms %}
+                            <b> {{ platform.platform.name }} |</b>  
+                        {% endfor %}
+                    </div>
+                    <div class="flex items-center text-sm text-gray-600">
+                        <b>Release Date:</b> {{ game.released }}
+                    </div>
+                    <div class="flex items-center">
+                        <img src="{{ game.background_image }}" alt="Game image" class="h-24 w-24 object-cover rounded-md">
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+        
+{% endblock %}
