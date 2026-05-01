@@ -12,3 +12,6 @@ def register(request):
                 messages.success(request, "Account created succesfully")
                 return redirect ('medialib:login')
     return render(request, "medialib/user/create_user.html", {"form": form})
+
+def dashboard(request, user_id):
+    return render(request, "medialib/user/dashboard.html", {"user_id": user_id})

@@ -14,7 +14,7 @@ def login_view(request):
             if auth_user:
                 login(request, auth_user) #Login the user
                 messages.success(request, "Login succesfull!")
-                return redirect('medialib:home') 
+                return redirect('medialib:dashboard', user_id=auth_user.id) #Redirect to the dashboard page with the user id as a parameter
     return render (request, "medialib/auth/login.html", {"form": form})
 
 def logout_view(request):
