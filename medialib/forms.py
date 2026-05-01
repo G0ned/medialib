@@ -12,6 +12,9 @@ class RegisterForm(UserCreationForm): #Formulario de registro que hereda de un f
 class AuthForm(AuthenticationForm):
     pass
 
+class SearchForm(forms.Form):
+    search = forms.CharField(max_length=100)
+
 """ class RegisterForm(forms.Form):
     email = forms.EmailField(
         label="e-mail",
