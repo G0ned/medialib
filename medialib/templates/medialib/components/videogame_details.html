@@ -1,0 +1,37 @@
+{% extends 'medialib/components/layout.html' %}
+
+{% block title %}
+    {{ game.name }}
+{% endblock %}
+
+{% block content %}
+<div class="max-w-4xl mx-auto px-4 mt-5 mb-8">
+    <div class="flex bg-gray-200 rounded-lg shadow-sm overflow-hidden">
+        <!-- Bloque izquierdo: info del juego -->
+        <div class="w-1/2 p-6 flex flex-col border-gray-300">
+            <h1 class="text-2xl font-bold">{{ game.name }}</h1>
+            <h3 class="mt-2">Release Date: {{ game.released }}</h3>
+            <h3 class="text-lg font-semibold text-gray-900 mt-4 mb-2">Platforms:</h3>
+            {% for platform in game.platforms %}
+                <b>{{ platform.platform.name }} |</b>
+            {% endfor %}
+            <div class="mt-6 flex-1">
+                <h3 class="text-lg font-semibold text-gray-900 mb-2">Description</h3>
+            {{ game.description_raw }}
+            </div>
+        </div>
+        <!-- Bloque derecho: imagen del juego -->
+        <div class="w-1/2 p-6">
+            <img src="{{ game.background_image }}" 
+                     alt="Game image" 
+                     class="w-full h-full object-contain rounded-md">
+        </div>
+    </div>
+</div>
+<div class="max-w-4xl mx-auto px-4 mt-5 mb-8">
+    <form action="" method="POST">
+        {% csrf_token %}
+        <input type="button" value="Add game" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+    </form>
+</div>
+{% endblock %}
