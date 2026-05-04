@@ -12,4 +12,5 @@ urlpatterns = [
     path("dashboard/<int:user_id>", views.dashboard, name="dashboard"),
     path("search-results", views.search_results, name="search.results"),
     path("game-details/<int:game_id>", views.game_details, name="game.details"),
+    path("add-game", views.add_game, name="add.game"),
 ]
