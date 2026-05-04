@@ -6,10 +6,12 @@
 
 {% block content %}
     <h3>Search results:</h3>
-    <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4 mt-6">
+    <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4 mt-6 mb-8">
         {% for game in result %}
             <div class="bg-gray-100 rounded-lg shadow-sm hover:shadow-md transition-shadow duration-200 p-6">
-                <h3 class="text-lg font-semibold text-gray-900 mb-2">{{ game.name }}</h3>
+                <a href="{% url 'medialib:game.details' game_id=game.id %}">
+                    <h3 class="text-lg font-semibold text-gray-900 mb-2">{{ game.name }}</h3>
+                </a>
                 <div class="space-y-3 ">
                     <div class="flex items-center text-sm text-gray-600">
                         <b>Platforms: </b>

@@ -16,3 +16,13 @@ def search_videogames(query):
                         })
     #3. Return the results of the search as a list of videogames or an empty list if there are no results
     return response.json().get('results', [])
+
+def get_videogame_details(game_id):
+    url = f"https://api.rawg.io/api/games/{game_id}"
+    response = requests.get(url,
+                        params={
+                            "key": API_KEY
+                        })
+    if response.status_code == 200:
+        return response.json()
+    return {}
