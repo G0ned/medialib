@@ -1,0 +1,20 @@
+{% extends 'medialib/components/layout.html' %}
+
+{% block title %} Create Collection {% endblock %}
+
+{% block content %}
+    <div class="flex items-center mt-4 rounded p-4">
+        <h1>Create Collection</h1>
+    </div>
+
+    <div class="max-w-sm mx-auto px-4 sm:px-6 lm:px-8">
+        <div class="bg-slate-500 rounded-lg shadow-sm p-6 sm:p8 mt-5 mb-8">
+            <form action="{% url 'medialib:collection.create' %}" method="POST">
+                {% csrf_token %}
+                <label for="name" class="block text-sm font-semibold text-white">Collection Name:</label>
+                <input type="text" id="name" name="name" class="w-full mt-1 p-2 rounded-md border-gray-300 focus:ring-blue-500 focus:border-blue-500">
+                <button type="submit" class="mt-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Create</button>
+            </form>
+        </div>
+    </div>
+{% endblock %}

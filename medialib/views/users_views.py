@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib import messages
 from ..forms import RegisterForm
+from ..models import Collection
 
 def register(request):
     if request.method == "GET":
@@ -14,4 +15,5 @@ def register(request):
     return render(request, "medialib/user/create_user.html", {"form": form})
 
 def dashboard(request, user_id):
-    return render(request, "medialib/user/dashboard.html", {"user_id": user_id})
+    collections = Collection.objects.filter(user_id=user_id)
+    return render(request, "medialib/user/dashboard.html", {"user_id": user_id, "collections": collections})
