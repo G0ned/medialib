@@ -3,7 +3,7 @@ Medialib is a web application aiming to help gamers to organize and manage their
 
 ![Python](https://img.shields.io/badge/Python-3.11-blue)
 ![Django](https://img.shields.io/badge/Django-5.2-green)
-![State](https://img.shields.io/badge/State-In%development-yellow)
+![State](https://img.shields.io/badge/State-In%20development-yellow)
 ![License](https://img.shields.io/badge/License-MIT-orange)
 
 ## Table of Contents
