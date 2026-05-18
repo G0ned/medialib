@@ -1,5 +1,6 @@
 from decouple import config
 import requests
+import datetime
 
 API_KEY = config('RAWG_API_KEY')
 #Service to search videogames using the RAWG API
@@ -15,6 +16,15 @@ def search_videogames(query):
                             "page_size": 10
                         })
     #3. Return the results of the search as a list of videogames or an empty list if there are no results
+    return response.json().get('results', [])
+
+def get_upcoming_releases(query):
+    url = f""
+    response = requests.get(url, 
+                        params={
+                            "key": API_KEY,
+                            "date": datetime.now().month
+                        })
     return response.json().get('results', [])
 
 def get_videogame_details(game_id):
